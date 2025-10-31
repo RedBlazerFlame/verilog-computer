@@ -1,0 +1,78 @@
+$date
+	Thu Oct 30 19:19:57 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module decoder_tb $end
+$var wire 16 ! b2 [15:0] $end
+$var wire 4 " b [3:0] $end
+$var reg 2 # a [1:0] $end
+$var reg 4 $ a2 [3:0] $end
+$scope module uut $end
+$var wire 2 % to_dec [1:0] $end
+$var wire 4 & encoded [3:0] $end
+$var parameter 32 ' BITS $end
+$upscope $end
+$scope module uut2 $end
+$var wire 4 ( to_dec [3:0] $end
+$var wire 16 ) encoded [15:0] $end
+$var parameter 32 * BITS $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b100 *
+b10 '
+$end
+#0
+$dumpvars
+bx )
+bx (
+b1 &
+b0 %
+bx $
+b0 #
+b1 "
+bx !
+$end
+#10000
+b10 "
+b10 &
+b1 #
+b1 %
+#20000
+b100 "
+b100 &
+b10 #
+b10 %
+#30000
+b1000 "
+b1000 &
+b11 #
+b11 %
+#40000
+b1 !
+b1 )
+b0 $
+b0 (
+#50000
+b100 !
+b100 )
+b10 $
+b10 (
+#60000
+b100000 !
+b100000 )
+b101 $
+b101 (
+#70000
+b1000000000000000 !
+b1000000000000000 )
+b1111 $
+b1111 (
+#80000

@@ -1,0 +1,25 @@
+#! /mingw64/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\msys64\mingw64\lib\ivl\system.vpi";
+:vpi_module "C:\msys64\mingw64\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\msys64\mingw64\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\msys64\mingw64\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\msys64\mingw64\lib\ivl\va_math.vpi";
+S_000002d594587280 .scope module, "adder" "adder" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 4 "a";
+    .port_info 1 /INPUT 4 "b";
+    .port_info 2 /OUTPUT 4 "c";
+o000002d5945c7af8 .functor BUFZ 4, C4<zzzz>; HiZ drive
+v000002d594587a50_0 .net "a", 3 0, o000002d5945c7af8;  0 drivers
+o000002d5945c7b28 .functor BUFZ 4, C4<zzzz>; HiZ drive
+v000002d59458ee90_0 .net "b", 3 0, o000002d5945c7b28;  0 drivers
+v000002d59458ef30_0 .net "c", 3 0, L_000002d594587410;  1 drivers
+L_000002d594587410 .arith/sum 4, o000002d5945c7af8, o000002d5945c7b28;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "adder.v";

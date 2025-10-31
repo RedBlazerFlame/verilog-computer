@@ -1,0 +1,576 @@
+$date
+	Sat Nov 01 00:44:48 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module computer_tb $end
+$var wire 64 ! comp_output [63:0] $end
+$var wire 1 " clk $end
+$var parameter 32 # WORD_SIZE $end
+$scope module comp $end
+$var wire 64 $ alu_inp_1 [63:0] $end
+$var wire 4 % alu_inp_opcode [3:0] $end
+$var wire 10 & call_stack_addr [9:0] $end
+$var wire 1 ' call_stack_en $end
+$var wire 1 ( call_stack_push $end
+$var wire 1 " clk_out $end
+$var wire 8 ) d_mem_addr [7:0] $end
+$var wire 64 * d_mem_data [63:0] $end
+$var wire 1 + d_mem_en $end
+$var wire 1 , d_mem_write $end
+$var wire 16 - pc_addr [15:0] $end
+$var wire 1 . push $end
+$var wire 64 / regfile_data_inp [63:0] $end
+$var wire 1 0 regfile_en $end
+$var wire 4 1 regfile_write [3:0] $end
+$var wire 4 2 regfile_r2 [3:0] $end
+$var wire 4 3 regfile_r1 [3:0] $end
+$var wire 64 4 regfile_out2 [63:0] $end
+$var wire 64 5 regfile_out1 [63:0] $end
+$var wire 16 6 pc_out [15:0] $end
+$var wire 10 7 inst_mem_addr [9:0] $end
+$var wire 64 8 d_mem_out_read [63:0] $end
+$var wire 4 9 cur_inst_code [3:0] $end
+$var wire 16 : cur_inst [15:0] $end
+$var wire 64 ; comp_output [63:0] $end
+$var wire 10 < call_stack_out [9:0] $end
+$var wire 64 = alu_out_res [63:0] $end
+$var wire 1 > alu_out_iszero $end
+$var wire 1 ? alu_out_iscarry $end
+$var wire 64 @ alu_inp_2 [63:0] $end
+$var parameter 32 A CLOCK_HALF_PERIOD $end
+$var parameter 32 B DATA_ADDR_SIZE $end
+$var parameter 32 C INSTRUCTION_ADDR_SIZE $end
+$var parameter 32 D INSTRUCTION_SIZE $end
+$var parameter 32 E REG_ADDR_SIZE $end
+$var parameter 32 F STACK_PTR_WIDTH $end
+$var parameter 32 G WORD_SIZE $end
+$var reg 64 H alu_inp_2_reg [63:0] $end
+$var reg 4 I alu_inp_opcode_reg [3:0] $end
+$var reg 10 J call_stack_addr_reg [9:0] $end
+$var reg 1 K call_stack_en_reg $end
+$var reg 1 L call_stack_push_reg $end
+$var reg 1 M clk $end
+$var reg 1 N clken $end
+$var reg 8 O d_mem_addr_reg [7:0] $end
+$var reg 64 P d_mem_data_reg [63:0] $end
+$var reg 1 Q d_mem_en_reg $end
+$var reg 1 R d_mem_write_reg $end
+$var reg 1 S iscarry_flag $end
+$var reg 1 T iszero_flag $end
+$var reg 16 U pc_addr_reg [15:0] $end
+$var reg 64 V regfile_data_inp_reg [63:0] $end
+$var reg 1 W regfile_en_reg $end
+$var reg 4 X regfile_write_reg [3:0] $end
+$scope module ALU $end
+$var wire 64 Y d1 [63:0] $end
+$var wire 64 Z d2 [63:0] $end
+$var wire 1 ? iscarry $end
+$var wire 4 [ opcode [3:0] $end
+$var wire 64 \ out [63:0] $end
+$var wire 1 > iszero $end
+$var wire 64 ] d2_twoscomp [63:0] $end
+$var parameter 32 ^ WORD_SIZE $end
+$var reg 1 _ carryreg $end
+$var reg 64 ` outreg [63:0] $end
+$upscope $end
+$scope module CALL_STACK $end
+$var wire 10 a addr [9:0] $end
+$var wire 1 M clk $end
+$var wire 1 ' en $end
+$var wire 10 b out [9:0] $end
+$var wire 1 . push $end
+$var parameter 32 c INSTRUCTION_ADDR_SIZE $end
+$var parameter 32 d STACK_PTR_WIDTH $end
+$var reg 6 e stackptr [5:0] $end
+$scope begin $ivl_for_loop0 $end
+$var integer 32 f i [31:0] $end
+$upscope $end
+$upscope $end
+$scope module DATA_MEMORY $end
+$var wire 8 g addr [7:0] $end
+$var wire 1 M clk $end
+$var wire 64 h data [63:0] $end
+$var wire 1 + en $end
+$var wire 64 i out [63:0] $end
+$var wire 1 , write $end
+$var wire 64 j data_out [63:0] $end
+$var parameter 32 k DATA_ADDR_SIZE $end
+$var parameter 32 l WORD_SIZE $end
+$var reg 64 m outreg [63:0] $end
+$scope begin $ivl_for_loop1 $end
+$var integer 32 n i [31:0] $end
+$upscope $end
+$upscope $end
+$scope module INSTRUCTION_MEMORY $end
+$var wire 10 o addr [9:0] $end
+$var wire 16 p out [15:0] $end
+$var parameter 32 q INSTRUCTION_ADDR_SIZE $end
+$var parameter 32 r INSTRUCTION_SIZE $end
+$var reg 16 s outreg [15:0] $end
+$scope begin $ivl_for_loop2 $end
+$var integer 32 t i [31:0] $end
+$upscope $end
+$upscope $end
+$scope module PROGRAM_COUNTER $end
+$var wire 16 u addr [15:0] $end
+$var wire 1 M clk $end
+$var wire 16 v out [15:0] $end
+$var parameter 32 w INSTRUCTION_SIZE $end
+$var reg 16 x outreg [15:0] $end
+$upscope $end
+$scope module REGISTER_FILE $end
+$var wire 1 M clk $end
+$var wire 64 y data [63:0] $end
+$var wire 1 0 en $end
+$var wire 64 z out2 [63:0] $end
+$var wire 4 { r1 [3:0] $end
+$var wire 4 | r2 [3:0] $end
+$var wire 4 } write [3:0] $end
+$var wire 64 ~ out1 [63:0] $end
+$var parameter 32 !" REG_ADDR_SIZE $end
+$var parameter 32 "" WORD_SIZE $end
+$var reg 64 #" out1reg [63:0] $end
+$var reg 64 $" out2reg [63:0] $end
+$scope begin $ivl_for_loop3 $end
+$var integer 32 %" i [31:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b1000000 ""
+b100 !"
+b10000 w
+b10000 r
+b1010 q
+b1000000 l
+b1000 k
+b110 d
+b1010 c
+b1000000 ^
+b1000000 G
+b110 F
+b100 E
+b10000 D
+b1010 C
+b1000 B
+b10100 A
+b1000000 #
+$end
+#0
+$dumpvars
+b10000 %"
+b0 $"
+b0 #"
+b0 ~
+bx }
+b0 |
+b1 {
+b0 z
+bx y
+b0 x
+b0 v
+bx u
+b10000000000 t
+b1000000100000001 s
+b1000000100000001 p
+b0 o
+b100000000 n
+b0 m
+b0 j
+b0 i
+bx h
+bx g
+b1000000 f
+b0 e
+b0 b
+bx a
+b0 `
+0_
+bx ]
+b0 \
+bx [
+bx Z
+b0 Y
+bx X
+xW
+bx V
+bx U
+xT
+xS
+xR
+xQ
+bx P
+bx O
+1N
+0M
+xL
+xK
+bx J
+bx I
+bx H
+bx @
+0?
+1>
+b0 =
+b0 <
+b0 ;
+b1000000100000001 :
+b1000 9
+b0 8
+b0 7
+b0 6
+b0 5
+b0 4
+b1 3
+b0 2
+bx 1
+x0
+bx /
+z.
+bx -
+x,
+x+
+bx *
+bx )
+x(
+x'
+bx &
+bx %
+b0 $
+0"
+b0 !
+$end
+#20000
+bx 9
+bx 2
+bx |
+bx 3
+bx {
+bx :
+bx p
+bx s
+bx 7
+bx o
+bx 6
+bx v
+bx x
+0S
+0T
+b1 /
+b1 y
+b1 V
+b1 1
+b1 }
+b1 X
+10
+1W
+b10 -
+b10 u
+b10 U
+0'
+0K
+0+
+0Q
+1"
+1M
+#40000
+0"
+0M
+#60000
+b10 9
+b10 2
+b10 |
+b1 3
+b1 {
+b10000100100011 :
+b10000100100011 p
+b10000100100011 s
+x>
+bx =
+bx \
+bx `
+b10 7
+b10 o
+bx 4
+bx z
+bx $"
+bx $
+bx Y
+bx 5
+bx ~
+bx #"
+b10 6
+b10 v
+b10 x
+1"
+1M
+#80000
+0"
+0M
+#100000
+x?
+x_
+b0 4
+b0 z
+b0 $"
+b1 $
+b1 Y
+b1 5
+b1 ~
+b1 #"
+xT
+bx /
+bx y
+bx V
+b11 1
+b11 }
+b11 X
+b100 -
+b100 u
+b100 U
+b0 %
+b0 [
+b0 I
+1"
+1M
+#120000
+0"
+0M
+#140000
+b0 2
+b0 |
+b11 3
+b11 {
+b10001100000010 :
+b10001100000010 p
+b10001100000010 s
+b0 ]
+0?
+0_
+0>
+b1 =
+b1 \
+b1 `
+b100 7
+b100 o
+xS
+b0 @
+b0 H
+b0 Z
+b100 6
+b100 v
+b100 x
+1"
+1M
+#160000
+0"
+0M
+#180000
+x?
+x_
+x>
+bx =
+bx \
+bx `
+bx $
+bx Y
+bx 5
+bx ~
+bx #"
+0S
+0T
+b1 /
+b1 y
+b1 V
+b10 1
+b10 }
+b10 X
+b110 -
+b110 u
+b110 U
+1"
+1M
+#200000
+0"
+0M
+#220000
+b1111 9
+b11 2
+b11 |
+b0 3
+b0 {
+b1111000000110000 :
+b1111000000110000 p
+b1111000000110000 s
+b110 7
+b110 o
+xS
+xT
+bx /
+bx y
+bx V
+b110 6
+b110 v
+b110 x
+1"
+1M
+#240000
+0"
+0M
+#260000
+0?
+0_
+1>
+b0 =
+b0 \
+b0 `
+bx 4
+bx z
+bx $"
+b0 $
+b0 Y
+b0 5
+b0 ~
+b0 #"
+0S
+0T
+b0 /
+b0 y
+b0 V
+b0 1
+b0 }
+b0 X
+b1000 -
+b1000 u
+b1000 U
+1+
+1Q
+1,
+1R
+b0 *
+b0 h
+b0 P
+1"
+1M
+#280000
+0"
+0M
+#300000
+b0 9
+b0 2
+b0 |
+b0 :
+b0 p
+b0 s
+b1000 7
+b1000 o
+b0x !
+b0x ;
+b0x j
+bx *
+bx h
+bx P
+b0 )
+b0 g
+b0 O
+b1000 6
+b1000 v
+b1000 x
+bx 8
+bx i
+bx m
+1"
+1M
+#320000
+0"
+0M
+#340000
+b0 !
+b0 ;
+b0 j
+b0 8
+b0 i
+b0 m
+b0 4
+b0 z
+b0 $"
+00
+0W
+b1010 -
+b1010 u
+b1010 U
+0+
+0Q
+1"
+1M
+#360000
+0"
+0M
+#380000
+b1010 7
+b1010 o
+b1010 6
+b1010 v
+b1010 x
+1"
+1M
+#400000
+0"
+0M
+#420000
+b1100 -
+b1100 u
+b1100 U
+1"
+1M
+#440000
+0"
+0M
+#460000
+b1100 7
+b1100 o
+b1100 6
+b1100 v
+b1100 x
+1"
+1M
+#480000
+0"
+0M
+#500000
+b1110 -
+b1110 u
+b1110 U
+1"
+1M
+#520000
+0"
+0M
+#540000
+b1110 7
+b1110 o
+b1110 6
+b1110 v
+b1110 x
+1"
+1M
+#560000
+0"
+0M
+#580000
+b10000 -
+b10000 u
+b10000 U
+1"
+1M
+#600000
+0"
+0M

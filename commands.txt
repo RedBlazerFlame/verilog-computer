@@ -1,0 +1,4 @@
+iverilog -o NAME.vvp NAME.v
+vvp NAME.vvp
+vvp NAME.vcd
+gtkwave NAME.vcd

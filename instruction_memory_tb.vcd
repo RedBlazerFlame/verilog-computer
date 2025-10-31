@@ -1,0 +1,70 @@
+$date
+	Thu Oct 30 22:31:33 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module instruction_memory_tb $end
+$var wire 16 ! out [15:0] $end
+$var parameter 32 " REG_ADDR_SIZE $end
+$var parameter 32 # WORD_SIZE $end
+$var reg 10 $ addr [9:0] $end
+$scope module uut $end
+$var wire 10 % addr [9:0] $end
+$var wire 16 & out [15:0] $end
+$var parameter 32 ' REG_ADDR_SIZE $end
+$var parameter 32 ( WORD_SIZE $end
+$var reg 16 ) outreg [15:0] $end
+$scope begin $ivl_for_loop0 $end
+$var integer 32 * i [31:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b10000 (
+b1010 '
+b10000 #
+b1010 "
+$end
+#0
+$dumpvars
+b10000000000 *
+b1000011 )
+b1000011 &
+b0 %
+b0 $
+b1000011 !
+$end
+#10000
+b101001 !
+b101001 &
+b101001 )
+b1 $
+b1 %
+#20000
+b10101 !
+b10101 &
+b10101 )
+b10 $
+b10 %
+#30000
+b0 !
+b0 &
+b0 )
+b11110 $
+b11110 %
+#40000
+b101110 $
+b101110 %
+#50000
+b10010 !
+b10010 &
+b10010 )
+b1111111111 $
+b1111111111 %
+#60000

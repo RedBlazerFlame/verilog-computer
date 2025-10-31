@@ -1,0 +1,75 @@
+#! /mingw64/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "C:\msys64\mingw64\lib\ivl\system.vpi";
+:vpi_module "C:\msys64\mingw64\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\msys64\mingw64\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\msys64\mingw64\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\msys64\mingw64\lib\ivl\va_math.vpi";
+S_000001d6c1edaf90 .scope module, "decoder_tb" "decoder_tb" 2 3;
+ .timescale -9 -12;
+v000001d6c1f720d0_0 .var "a", 1 0;
+v000001d6c1f72170_0 .var "a2", 3 0;
+v000001d6c1f72210_0 .net "b", 3 0, L_000001d6c1fbaf90;  1 drivers
+v000001d6c1f722b0_0 .net "b2", 15 0, L_000001d6c1fbac70;  1 drivers
+S_000001d6c1edd100 .scope module, "uut" "decoder" 2 8, 3 4 0, S_000001d6c1edaf90;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 2 "to_dec";
+    .port_info 1 /OUTPUT 4 "encoded";
+P_000001d6c1f18500 .param/l "BITS" 0 3 4, +C4<00000000000000000000000000000010>;
+L_000001d6c1f72358 .functor BUFT 1, C4<0001>, C4<0>, C4<0>, C4<0>;
+v000001d6c1eda9e0_0 .net/2u *"_ivl_0", 3 0, L_000001d6c1f72358;  1 drivers
+v000001d6c1ed76e0_0 .net "encoded", 3 0, L_000001d6c1fbaf90;  alias, 1 drivers
+v000001d6c1edbf40_0 .net "to_dec", 1 0, v000001d6c1f720d0_0;  1 drivers
+L_000001d6c1fbaf90 .shift/l 4, L_000001d6c1f72358, v000001d6c1f720d0_0;
+S_000001d6c1edd290 .scope module, "uut2" "decoder" 2 12, 3 4 0, S_000001d6c1edaf90;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 4 "to_dec";
+    .port_info 1 /OUTPUT 16 "encoded";
+P_000001d6c1f18700 .param/l "BITS" 0 3 4, +C4<00000000000000000000000000000100>;
+L_000001d6c1f723a0 .functor BUFT 1, C4<0000000000000001>, C4<0>, C4<0>, C4<0>;
+v000001d6c1edd420_0 .net/2u *"_ivl_0", 15 0, L_000001d6c1f723a0;  1 drivers
+v000001d6c1edd4c0_0 .net "encoded", 15 0, L_000001d6c1fbac70;  alias, 1 drivers
+v000001d6c1f72030_0 .net "to_dec", 3 0, v000001d6c1f72170_0;  1 drivers
+L_000001d6c1fbac70 .shift/l 16, L_000001d6c1f723a0, v000001d6c1f72170_0;
+    .scope S_000001d6c1edaf90;
+T_0 ;
+    %vpi_call 2 15 "$dumpfile", "decoder_tb.vcd" {0 0 0};
+    %vpi_call 2 16 "$dumpvars", 32'sb00000000000000000000000000000000, S_000001d6c1edaf90 {0 0 0};
+    %end;
+    .thread T_0;
+    .scope S_000001d6c1edaf90;
+T_1 ;
+    %pushi/vec4 0, 0, 2;
+    %store/vec4 v000001d6c1f720d0_0, 0, 2;
+    %delay 10000, 0;
+    %pushi/vec4 1, 0, 2;
+    %store/vec4 v000001d6c1f720d0_0, 0, 2;
+    %delay 10000, 0;
+    %pushi/vec4 2, 0, 2;
+    %store/vec4 v000001d6c1f720d0_0, 0, 2;
+    %delay 10000, 0;
+    %pushi/vec4 3, 0, 2;
+    %store/vec4 v000001d6c1f720d0_0, 0, 2;
+    %delay 10000, 0;
+    %pushi/vec4 0, 0, 4;
+    %store/vec4 v000001d6c1f72170_0, 0, 4;
+    %delay 10000, 0;
+    %pushi/vec4 2, 0, 4;
+    %store/vec4 v000001d6c1f72170_0, 0, 4;
+    %delay 10000, 0;
+    %pushi/vec4 5, 0, 4;
+    %store/vec4 v000001d6c1f72170_0, 0, 4;
+    %delay 10000, 0;
+    %pushi/vec4 15, 0, 4;
+    %store/vec4 v000001d6c1f72170_0, 0, 4;
+    %delay 10000, 0;
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "decoder_tb.v";
+    "./decoder.v";
