@@ -301,20 +301,35 @@ module computer #(parameter WORD_SIZE = 64, DATA_ADDR_SIZE = 8, INSTRUCTION_ADDR
                 regfile_write_reg = cur_inst[11:8];
                 regfile_data_inp_reg = {56'd0, cur_inst[7:0]};
             end
-            4'b1001: // ADI
+            // 4'b1001: // ! DEFUNCT ADI
+            // begin
+            //     pc_addr_reg = pc_out_p1;
+
+            //     alu_inp_2_reg = {56'd0, cur_inst[7:0]};
+            //     alu_inp_opcode_reg = 4'd0000;
+
+            //     d_mem_en_reg = 1'd0;
+                
+            //     call_stack_en_reg = 1'd0;
+
+
+            //     regfile_en_reg = 1'b1;
+            //     regfile_write_reg = cur_inst[11:8];
+            //     regfile_data_inp_reg = alu_out_res;
+            // end
+            4'b1001: // MUL
             begin
                 pc_addr_reg = pc_out_p1;
 
-                alu_inp_2_reg = {56'd0, cur_inst[7:0]};
-                alu_inp_opcode_reg = 4'd0000;
+                alu_inp_2_reg = regfile_out2;
+                alu_inp_opcode_reg = 4'b0010;
 
                 d_mem_en_reg = 1'd0;
                 
                 call_stack_en_reg = 1'd0;
 
-
                 regfile_en_reg = 1'b1;
-                regfile_write_reg = cur_inst[11:8];
+                regfile_write_reg = cur_inst[3:0];
                 regfile_data_inp_reg = alu_out_res;
             end
             4'b1010: // JMP
@@ -458,7 +473,12 @@ module computer #(parameter WORD_SIZE = 64, DATA_ADDR_SIZE = 8, INSTRUCTION_ADDR
                 iszero_flag <= 1'b0;
                 iscarry_flag <= 1'b0;
             end
-            4'b1001: // ADI
+            // 4'b1001: // !DEFUNCT ADI
+            // begin
+            //     iszero_flag <= alu_out_iszero;
+            //     iscarry_flag <= alu_out_iscarry;
+            // end
+            4'b1001: // MUL
             begin
                 iszero_flag <= alu_out_iszero;
                 iscarry_flag <= alu_out_iscarry;

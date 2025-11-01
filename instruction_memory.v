@@ -28,6 +28,8 @@ module instruction_memory #(parameter INSTRUCTION_SIZE = 16, INSTRUCTION_ADDR_SI
         SUB r4 r6 r4
         SUB r4 r0 r5
         BRH notzero 5
+        MUL r1 r2 r5
+        STR r0 r5 0
         HLT
         */
 
@@ -43,7 +45,9 @@ module instruction_memory #(parameter INSTRUCTION_SIZE = 16, INSTRUCTION_ADDR_SI
         mem[10'd9] = 16'b0011_0100_0110_0100;
         mem[10'd10] = 16'b0011_0100_0000_0101;
         mem[10'd11] = 16'b1011_00_0000000101;
-        mem[10'd12] = 16'b0001_0000_0000_0000;
+        mem[10'd12] = 16'b1001_0001_0010_0101;
+        mem[10'd13] = 16'b1111_0000_0101_0000;
+        mem[10'd14] = 16'b0001_0000_0000_0000;
 
         /*==============
         MACHINE CODE END
